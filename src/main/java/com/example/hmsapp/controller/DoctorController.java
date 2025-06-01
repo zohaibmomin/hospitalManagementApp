@@ -5,6 +5,7 @@ import com.example.hmsapp.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.Doc;
 import java.util.List;
 
 @RestController
@@ -39,9 +40,9 @@ public class DoctorController {
     }
 
     @PutMapping("/{id}")
-    public void updateDoctor(@PathVariable Long id) {
+    public Doctor updateDoctor(@PathVariable Long id, @RequestBody Doctor updatedDoctor) {
         System.out.println("Updated Doctor");
-        doctorService.updateDoctor(id);
+        return doctorService.updateDoctor(id, updatedDoctor);
     }
 
 }
