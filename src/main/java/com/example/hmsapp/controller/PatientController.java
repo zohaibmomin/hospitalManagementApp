@@ -28,9 +28,10 @@ public class PatientController {
 
     @PostMapping
     public Patient createPatient(@RequestBody Patient patient) {
-        System.out.println("Creating Patient");
+        System.out.println("Received patient -> " + patient);
         return patientService.createPatient(patient);
     }
+
 
     @DeleteMapping("/{id}")
     public void deletePatient(@PathVariable Long id) {
@@ -39,9 +40,9 @@ public class PatientController {
     }
 
     @PutMapping("/{id}")
-    public void updatePatient(@PathVariable Long id) {
+    public Patient updatePatient(@PathVariable Long id, @RequestBody Patient updatedPatient) {
         System.out.println("Updated Patient");
-        patientService.updatePatient(id);
+        return patientService.updatePatient(id, updatedPatient);
     }
 
 }

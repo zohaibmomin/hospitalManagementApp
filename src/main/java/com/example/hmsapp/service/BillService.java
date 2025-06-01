@@ -1,13 +1,15 @@
 package com.example.hmsapp.service;
 
 import com.example.hmsapp.model.Bill;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Service
 public class BillService {
+    private static final Logger logger = LoggerFactory.getLogger(BillService.class);
 
     public List<Bill> getAllBills() {
         System.out.println("Service Layer :: Fetching all bills..");
@@ -30,5 +32,6 @@ public class BillService {
 
     public void deleteBill(Long id) {
         System.out.println("Service Layer :: Delete bill " + id);
+        logger.error("An error occured while deleting as an example test....");
     }
 }
